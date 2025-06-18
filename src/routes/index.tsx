@@ -1,9 +1,9 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import ProtectedRoute from "../components/ProtectedRoute";
-import NotFound from "../pages/NotFound";
+import NotFound from "../pages/global/NotFound/NotFound";
 
 // Páginas Públicas
-import Login from "../pages/Login";
+import Login from "../pages/global/Login/Login";
 
 // Páginas do Usuário
 import SignUp from "../pages/user/SignUp/SignUp";

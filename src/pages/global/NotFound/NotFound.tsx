@@ -1,4 +1,4 @@
-import { Container, Title } from "./globalStyles/notFound.styles.ts";
+import { Container, Title } from "./styles.ts";
 
 const NotFound = () => {
   return (

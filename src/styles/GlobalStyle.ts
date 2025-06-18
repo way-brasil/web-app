@@ -1,13 +1,13 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Madimi+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 
   :root {
     /* Cores da imagem */
     --color-white: #FFFFFF;
     --color-dark-gray-1: #333333;
-    --color-yellow-gold: #FFD52C;
+    --color-yellow: #FFD52C;
     --color-black: #000000;
     --color-light-gray-1: #D9D9D9;
     --color-medium-gray: #939192;
@@ -39,13 +39,17 @@ const GlobalStyle = createGlobalStyle`
 
   /* Defina outras fontes se necessário */
   h1, h2, h3, h4, h5, h6 {
-      font-family: 'Nunito', sans-serif;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
   }
 
   /* Exemplo de como usar Madimi One */
   .madimi-one-text {
-      font-family: 'Madimi One', sans-serif;
+    font-family: 'Madimi One', sans-serif;
   }
+
+
 
 `;
 
