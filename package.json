@@ -22,6 +22,7 @@
     "@heroui/system": "2.4.15",
     "@heroui/theme": "2.4.15",
     "@heroui/use-theme": "2.1.8",
+    "@nipe-solutions/react-spring-bottom-sheet": "^4.0.4",
     "@react-aria/visually-hidden": "3.8.22",
     "@react-types/shared": "3.29.0",
     "clsx": "2.1.1",
@@ -29,6 +30,8 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-router-dom": "^6.23.0",
+    "react-spring": "^10.0.1",
+    "react-spring-bottom-sheet": "^3.4.1",
     "styled-components": "^6.1.18",
     "tailwind-variants": "0.3.0",
     "tailwindcss": "3.4.16"

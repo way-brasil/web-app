@@ -1,30 +1,38 @@
-import { Container, Logo, Center } from "./styles.ts";
-import { Input } from "@heroui/input";
-import {Button} from "@heroui/button";
-
+import ButtonChip from "@/components/basics/ButtonChip.tsx";
+import { Container, Logo, Center, YellowButton, Footer } from "./styles.ts";
+import InputBrazilNumber from "@/components/basics/InputBrazilNumber.tsx";
+import LoginModal from "@/components/LoginModal.tsx";
+import { useState } from "react";
 
 const Login = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <Container>
       <Logo>
         <img src="/white-icon.svg" alt="" />
         <h2>Mova-se Fácil</h2>
       </Logo>
+
       <Center>
         <h1>Qual seu whatsapp?</h1>
-        <Input
-          radius="lg"
-          size="lg"
-          startContent={<img src="/ico/br.svg" alt="" />}
-        />
-        <Button radius="full" size="sm">se cadastrar</Button>
+        <InputBrazilNumber />
+        <ButtonChip>se cadastrar</ButtonChip>
       </Center>
-      <div>
-        <h3>By tapping Continue, you are agreeing to <br /> our Terms of Service an Privacy Policy</h3>
-        <Button radius="full" size="sm">Continue
+      <Footer>
+        <h3>
+          By tapping Continue, you are agreeing to <br /> our Terms of Service
+          an Privacy Policy
+        </h3>
+        <YellowButton onClick={() => setIsOpen(true)}>
+          <p>Continue</p>
           <img src="/ico/dark-arrow-1.svg" alt="" />
-        </Button>
-      </div>
+        </YellowButton>
+        <div className="links">
+          <button>termos de uso</button>
+          <button>suporte</button>
+        </div>
+      </Footer>
+      <LoginModal isOpen={isOpen} onClose={() => setIsOpen(false)}></LoginModal>
     </Container>
   );
 };

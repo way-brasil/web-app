@@ -43,6 +43,15 @@ const GlobalStyle = createGlobalStyle`
     font-optical-sizing: auto;
     font-style: normal;
   }
+  h1{
+    font-size: 26px;
+    font-weight: bold;
+
+  }
+  h2{
+    font-size: 24px;
+    font-weight: bold;
+  }
 
   /* Exemplo de como usar Madimi One */
   .madimi-one-text {
