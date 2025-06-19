@@ -6,6 +6,7 @@ import { useState } from "react";
 
 const Login = () => {
   const [isOpen, setIsOpen] = useState(false);
+  document.body.style.overflow = 'hidden';
   return (
     <Container>
       <Logo>
