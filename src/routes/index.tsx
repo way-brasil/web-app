@@ -1,12 +1,12 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import ProtectedRoute from "../components/ProtectedRoute";
 import NotFound from "../pages/global/NotFound/NotFound";
+import UserLayout from "../layouts/UserLayout";
 
 // Páginas Públicas
 import Login from "../pages/global/Login/Login";
 
 // Páginas do Usuário
-import SignUp from "../pages/user/SignUp/SignUp";
 import UserHome from "../pages/user/Home/Home";
 import UserActivities from "../pages/user/Activities/Activities";
 import UserWallet from "../pages/user/Wallet/Wallet";
@@ -32,10 +32,6 @@ export const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: "/signup",
-    element: <SignUp />,
-  },
-  {
     path: "/driver/signup",
     element: <DriverSignUp />,
   },
@@ -45,20 +41,13 @@ export const router = createBrowserRouter([
     element: <ProtectedRoute userType="user" />,
     children: [
       {
-        path: "/home",
-        element: <UserHome />,
-      },
-      {
-        path: "/activities",
-        element: <UserActivities />,
-      },
-      {
-        path: "/wallet",
-        element: <UserWallet />,
-      },
-      {
-        path: "/settings",
-        element: <UserProfile />,
+        element: <UserLayout />,
+        children: [
+          { path: "/home", element: <UserHome /> },
+          { path: "/activities", element: <UserActivities /> },
+          { path: "/wallet", element: <UserWallet /> },
+          { path: "/settings", element: <UserProfile /> },
+        ],
       },
     ],
   },

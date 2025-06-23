@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled, { keyframes, css } from "styled-components";
 import ButtonChip from "@/components/basics/ButtonChip";
 import InputBrazilNumber from "@/components/basics/InputBrazilNumber";
@@ -310,6 +311,8 @@ const Login = () => {
     { value: "salvador", label: "Salvador, BA" },
   ];
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     function onPopState() {
       handleBack();
@@ -343,7 +346,7 @@ const Login = () => {
   };
 
   const handleNumberCheckContinue = () => {
-    console.log("NumberCheck continue clicked");
+    navigate("/home");
   };
 
   const handleBack = () => {

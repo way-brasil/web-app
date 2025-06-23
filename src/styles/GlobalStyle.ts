@@ -80,6 +80,9 @@ const GlobalStyle = createGlobalStyle`
     --color-blue: #0057ED;
     --color-orange: #ED9E00;
   }
+  
+
+ 
 
   body {
     margin: 0;
@@ -88,10 +91,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Nunito', sans-serif; /* Nunito como padrão */
     background-color: var(--color-very-dark-gray-1);
     color: var(--color-light-gray-3);
+    min-height: 100vh;
   }
 
   /* Defina outras fontes se necessário */
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, h5, h6, button {
     font-family: "Nunito", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
