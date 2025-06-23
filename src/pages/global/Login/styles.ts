@@ -7,9 +7,83 @@ const slideOutLeft = keyframes`
   }
 `;
 
+const yellowButtonDown = keyframes`
+  to {
+    transform: translateY(42px) scale(1);
+  }
+`;
+
+const yellowButtonUp = keyframes`
+  from {
+    transform: translateY(42px) scale(1);
+  }
+  to {
+    transform: translateY(0) scale(1);
+  }
+`;
+
+const slideInRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-120%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+`;
+
 const logoUp = keyframes`
   to {
     transform: translateY(-60px) scale(1.1);
+  }
+`;
+
+const logoDown = keyframes`
+  from {
+    transform: translateY(-60px) scale(1.1);
+  }
+  to {
+    transform: translateY(0) scale(1);
+  }
+`;
+
+const otpIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(120%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+`;
+
+const otpOut = keyframes`
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(120%) scale(0.95);
+  }
+`;
+
+const fadeOut = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+`;
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 `;
 
@@ -31,17 +105,47 @@ export const Logo = styled.div`
   justify-content: center;
   margin-top: 10vh;
   gap: 25px;
+  width: 100%;
+  padding: 0 5%;
+  box-sizing: border-box;
+  transition: all 0.5s;
+
   @media (min-width: 800px) {
     margin-top: 15vh;
   }
   &.logo-animate {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
     .logo-img-animate {
       animation: ${logoUp} 0.7s forwards;
+      height: 44px;
+    }
+    .back-button {
+      opacity: 1;
+      position: absolute;
+      animation: ${logoUp} 0.7s forwards;
+      left: 10%;
+      width: 12px;
     }
     h2.hide {
-      opacity: 0;
-      transition: opacity 0.4s;
+      display: none;
     }
+  }
+  .logo-img-revert {
+    animation: ${logoDown} 0.7s forwards;
+  }
+  .back-button {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  &:not(.logo-animate) .back-button {
+    display: none;
   }
 `;
 export const Center = styled.div`
@@ -51,8 +155,22 @@ export const Center = styled.div`
   justify-content: center;
   gap: 20px;
   width: 100%;
+  .codeInfo {
+    font-size: 14px;
+    text-align: center;
+    color: var(--color-medium-gray);
+  }
   &.animate-out {
     animation: ${slideOutLeft} 0.7s forwards;
+  }
+  &.animate-in {
+    animation: ${slideInRight} 0.7s forwards;
+  }
+  &.otp-animate-in {
+    animation: ${otpIn} 0.7s forwards;
+  }
+  &.otp-animate-out {
+    animation: ${otpOut} 0.7s forwards;
   }
 `;
 export const YellowButton = styled.div`
@@ -79,11 +197,16 @@ export const Footer = styled.div`
   flex-direction: column;
   gap: 15px;
   width: 85%;
-
   h3 {
     font-size: 14px;
     text-align: center;
     color: var(--color-medium-gray);
+    &.fade-out {
+      animation: ${fadeOut} 0.4s forwards;
+    }
+    &.fade-in {
+      animation: ${fadeIn} 0.4s forwards;
+    }
   }
   .links {
     display: flex;
@@ -92,10 +215,26 @@ export const Footer = styled.div`
     align-items: center;
     width: 95%;
     font-size: 12px;
+    font-weight: bold;
     color: var(--color-light-gray-2);
+    &.fade-out {
+      animation: ${fadeOut} 0.4s forwards;
+    }
+    &.fade-in {
+      animation: ${fadeIn} 0.4s forwards;
+    }
   }
   &.animate-out {
     animation: ${slideOutLeft} 0.7s forwards;
+  }
+  &.animate-in {
+    animation: ${slideInRight} 0.7s forwards;
+  }
+  .animate-down {
+    animation: ${yellowButtonDown} 0.7s forwards;
+  }
+  .animate-up {
+    animation: ${yellowButtonUp} 0.7s forwards;
   }
 `;
 export const ModalContent = styled.div`

@@ -1,4 +1,57 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, keyframes } from "styled-components";
+
+const slideOutLeft = keyframes`
+  to {
+    opacity: 0;
+    transform: translateX(-120%) scale(0.95);
+  }
+`;
+
+const slideOutRight = keyframes`
+  to {
+    opacity: 0;
+    transform: translateX(120%) scale(0.95);
+  }
+`;
+
+const slideInRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-120%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+`;
+
+const slideInLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(120%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+`;
+
+const fadeOut = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+`;
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 const GlobalStyle = createGlobalStyle`
 
@@ -59,6 +112,35 @@ const GlobalStyle = createGlobalStyle`
   }
 
 
+
+  // ===================== EFEITOS =====================
+
+  .slideOutLeft{
+    animation: ${slideOutLeft} 0.7s forwards;
+  }
+
+  .slideOutRight{
+    animation: ${slideOutRight} 0.7s forwards;
+  }
+
+
+
+  .slideInRight{
+    animation: ${slideInRight} 0.7s forwards;
+  }
+
+  .slideInLeft{
+    animation: ${slideInLeft} 0.7s forwards;
+  }
+
+
+
+  .fade-out {
+    animation: ${fadeOut} 0.4s forwards;
+  }
+  .fade-in {
+    animation: ${fadeIn} 0.4s forwards;
+  }
 
 `;
 
