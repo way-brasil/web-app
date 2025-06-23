@@ -67,6 +67,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
   // Controla visibilidade e animação de entrada/saída
   useEffect(() => {
     if (isOpen) {
+      document.body.style.overflow = "hidden";
       setVisible(true);
       setSheetTranslate("100vh");
       setAnimate(false);
@@ -76,6 +77,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
       }, 20);
     } else if (visible) {
       // Só anima saída se estava visível
+      document.body.style.overflow = "auto",
       setAnimate(true);
       setSheetTranslate("100vh");
       closeTimeout.current = setTimeout(() => {

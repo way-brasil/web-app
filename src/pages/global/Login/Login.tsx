@@ -44,8 +44,8 @@ const titleIn = keyframes`
 // Styled Components
 const Container = styled.div`
   width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
   max-width: 600px;
   margin: auto;
   display: flex;
@@ -289,7 +289,7 @@ const UserTypeButton = styled.div`
 `;
 
 const Login = () => {
-  document.body.style.overflow = "hidden";
+  //document.body.style.overflow = "hidden";
 
   const [currentScreen, setCurrentScreen] = useState<
     "phoneInput" | "register" | "numberCheck"
