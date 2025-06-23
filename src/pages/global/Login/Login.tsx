@@ -42,7 +42,7 @@ const titleIn = keyframes`
 `;
 
 // Styled Components
-const Container = styled.div`
+const Container = styled.div<{ $isNumberCheck: boolean }>`
   width: 100%;
   height: 100vh;
   height: 100dvh;
@@ -51,13 +51,28 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  position: relative;
+  padding-top: 22vh;
+  padding-bottom: ${({ $isNumberCheck }) =>
+    $isNumberCheck ? "120px" : "140px"};
+
+  &.condensed-state {
+    padding-top: 10vh;
+  }
 `;
 
 const Header = styled.header`
   width: 100%;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  max-width: 600px;
+  margin: auto;
   height: 22vh; /* Altura controlada para a área de animação */
+  background-color: var(--color-very-dark-gray-1);
 
   .logo,
   h2,
@@ -129,7 +144,15 @@ const CenterContainer = styled.div<{ $animation: string }>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-grow: 1; /* Ocupa o espaço disponível */
+  flex-grow: 1;
+
+  @media (max-height: 700px) {
+    &.register {
+      //height: 100%;
+      justify-content: start;
+      overflow-y: auto;
+    }
+  }
 
   ${({ $animation }) => {
     switch ($animation) {
@@ -165,6 +188,13 @@ const Center = styled.div`
   padding: 0 5%;
   box-sizing: border-box;
 
+  @media (max-height: 700px) {
+    &.register {
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+  }
+
   h1 {
     font-size: 26px;
     font-weight: bold;
@@ -183,9 +213,18 @@ const Footer = styled.div<{ $isNumberCheck: boolean }>`
   justify-content: center;
   flex-direction: column;
   gap: 15px;
-  width: 85%;
+  width: 100%;
+  max-width: 600px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: var(--color-very-dark-gray-1);
+  z-index: 10;
   padding-bottom: ${({ $isNumberCheck }) => ($isNumberCheck ? "40px" : "20px")};
   min-height: ${({ $isNumberCheck }) => ($isNumberCheck ? "120px" : "140px")};
+  box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.04);
   transition:
     min-height 0.3s ease-in-out,
     padding-bottom 0.3s ease-in-out;
@@ -219,7 +258,7 @@ const YellowButton = styled.div`
   gap: 10px;
   background-color: var(--color-yellow);
   border-radius: 50px;
-  width: 100%;
+  width: 85%;
   height: 52px;
   cursor: pointer;
 
@@ -289,7 +328,7 @@ const UserTypeButton = styled.div`
 `;
 
 const Login = () => {
-  //document.body.style.overflow = "hidden";
+  document.body.classList.add("body-no-scroll");
 
   const [currentScreen, setCurrentScreen] = useState<
     "phoneInput" | "register" | "numberCheck"
@@ -389,7 +428,7 @@ const Login = () => {
         );
       case "register":
         return (
-          <Center>
+          <Center className="register">
             <h3 className="codeInfo"></h3>
             <h1>Qual seu nome?</h1>
             <Input
@@ -430,7 +469,10 @@ const Login = () => {
   };
 
   return (
-    <Container>
+    <Container
+      className={isCondensed ? "condensed-state" : ""}
+      $isNumberCheck={currentScreen === "numberCheck"}
+    >
       <Header className={isCondensed ? "condensed-state" : ""}>
         <img
           src="/ico/gray-arrow-3.svg"
@@ -442,7 +484,7 @@ const Login = () => {
         <h2>Mova-se Fácil</h2>
       </Header>
 
-      <CenterContainer $animation={centerAnimation}>
+      <CenterContainer className={currentScreen} $animation={centerAnimation}>
         {renderCenter()}
       </CenterContainer>
 

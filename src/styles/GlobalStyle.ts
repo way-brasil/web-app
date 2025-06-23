@@ -91,7 +91,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Nunito', sans-serif; /* Nunito como padrão */
     background-color: var(--color-very-dark-gray-1);
     color: var(--color-light-gray-3);
-    max-height: 100vh;
+    max-height: 100vh; 
   }
 
   /* Defina outras fontes se necessário */
@@ -109,6 +109,9 @@ const GlobalStyle = createGlobalStyle`
     font-size: 24px;
     font-weight: bold;
   }
+  .body-no-scroll {
+  overflow: hidden !important;
+}
 
   /* Exemplo de como usar Madimi One */
   .madimi-one-text {
