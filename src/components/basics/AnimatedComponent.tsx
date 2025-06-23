@@ -122,7 +122,6 @@ const AnimatedComponent: React.FC<AnimatedComponentProps> = ({
   isVisible,
   animation,
   duration = 0.7,
-  onAnimationEnd,
   className,
 }) => {
   return (

@@ -24,24 +24,17 @@ const slideOutLeft = keyframes`
   from { opacity: 1; transform: translateX(0) scale(1); }
   to { opacity: 0; transform: translateX(-120%) scale(0.95); }
 `;
-const logoUp = keyframes`
-  to { transform: translate(-50%, -50px); }
-`;
+
 const logoDown = keyframes`
   from { transform: translate(-50%, -50px); }
   to { transform: translate(-50%, 0); }
 `;
-const fadeIn = keyframes`
-  from { opacity: 0; }
-  to { opacity: 1; }
-`;
+
 const fadeOut = keyframes`
   from { opacity: 1; }
   to { opacity: 0; }
 `;
-const titleOut = keyframes`
-  to { opacity: 0; transform: translate(-50%, 20px); }
-`;
+
 const titleIn = keyframes`
   from { opacity: 0; transform: translate(-50%, 20px); }
   to { opacity: 1; transform: translate(-50%, 0); }
